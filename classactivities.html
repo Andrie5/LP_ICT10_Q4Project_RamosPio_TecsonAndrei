@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: conic-gradient(rgb(255, 0, 0), rgb(125, 1, 1), rgb(255, 121, 121), rgb(118, 12, 12), rgb(183, 61, 61), rgb(255, 0, 0));
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(255, 244, 128, 0.95); 
+            padding: 0.7px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar h3 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+            font-weight: 500;
+        }
+
+       .signup { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .team { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .players { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .signup:hover, .team:hover, .players:hover { 
+            opacity: 0.7; 
+        }
+
+        h1{
+            text-align: center;
+            margin: 30px 0;
+            color: rgb(58, 0, 0);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-weight: bold;
+        }
+
+        h3{
+            text-align: center;
+            margin: 10px 0;
+            font-size: 15px;
+            color: rgb(58, 0, 0);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+        h5{
+            color: white;
+        }
+        .wrapper {
+            height: 68vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            max-width: 1400px;
+            width: 95%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .card {
+            height: 100%;
+        }
+
+        .img-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .img-container .col {
+            flex: 0 0 calc(25% - 20px);
+            max-width: calc(25% - 20px);
+        }
+
+        @media (max-width: 768px) {
+            .img-container .col {
+                flex: 0 0 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            border-color: #000061;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            background: linear-gradient(to right, rgb(216, 154, 154), rgb(255, 255, 161), lightgreen, lightblue);
+            color: rgb(66, 63, 63);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.7;
+        }
+
+        footer {
+            background: radial-gradient( rgb(233, 238, 160), rgb(155, 20, 20));
+            color: rgb(58, 0, 0);
+            text-align: center;
+            font-weight: bold;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        .img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .img:hover {
+            transform: scale(2);
+            transition: transform 0.3s ease;
+        }
+        .col{
+            background: rgb(155, 56, 56);
+            padding: 10px;
+            width: 200px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+
+   <div class="navbar">
+        <div class="brand">
+            <img src="ruby.png" alt="Logo" width="30" height="30">
+            <h3>10-Ruby Class Website</h3>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="signup">Classmates</a>
+            <a href="attendance.html" class="team">Attendance Checker</a>
+            <a href="classactivities.html" class="players">Highlights</a>
+        </div>
+    </div>
+
+    <center>
+    
+        <h1>Highlights of Our 10-Ruby Journey</h1>
+
+    <div class="container text-center">
+        <div class="img-container">
+
+            <div class="col">
+                <div class="card">
+                    <img src="CAT.jpg" alt="CAT" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">CAT Graduation</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="halloween.jpg" alt="halloween" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Halloween Party</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="intrams.jpg" alt="intrams" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Intramurals</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="mop.jpg" alt="mop" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Spillage #912752</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="christmas.jpg" alt="christmas" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Christmas Party</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="sabayangpagbigkas.jpg" alt="sabayangpagbigkas" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Sabayang Pagbigkas</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="teacher.jpg" alt="teacher" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Teacher's Day</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="fire.jpg" alt="fire" class="img">
+                    <div class="card-body">
+                        <h5 class="card-title">Fire Drill</h5>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </center>
+
+    <py-script src="classactivities.py"></py-script>
+
+    <br><br><br><br>
+
+    <footer>
+    © 2026 Pio Ramos & Andrei Tecson
+    </footer>
+
+</body>
+</html>
+</body>
+</html>

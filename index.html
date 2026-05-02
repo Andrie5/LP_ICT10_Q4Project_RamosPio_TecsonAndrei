@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-Ruby Class Website</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <py-config>
+        packages = ["numpy"]
+    </py-config>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: conic-gradient(rgb(255, 0, 0), rgb(125, 1, 1), rgb(255, 121, 121), rgb(118, 12, 12), rgb(183, 61, 61), rgb(255, 0, 0));
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(255, 244, 128, 0.95); 
+            padding: 2px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+         .navbar .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar h3 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+            font-weight: 500;
+        }
+
+        .signup { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .team { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .players { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .signup:hover, .team:hover, .players:hover { 
+            opacity: 0.7; 
+        }
+
+        h1{
+            text-align: center;
+            margin: 30px 0;
+            color: rgb(58, 0, 0);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-weight: bold;
+        }
+
+        h3{
+            text-align: center;
+            margin: 10px 0;
+            font-size: 15px;
+            color: rgb(58, 0, 0);
+            font-family: Arial, sans-serif;
+        }
+        .wrapper {
+            min-height: 68vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            margin: 0 auto;
+            overflow-wrap: break-word;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            border-color: #000061;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            color: rgb(20, 0, 0);
+            background: linear-gradient(rgb(125, 1, 1), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1px;
+        }
+
+        .btn:hover {
+            opacity: 0.7;
+        }
+
+        footer {
+            background: radial-gradient( rgb(233, 238, 160), rgb(155, 20, 20));
+            color: rgb(58, 0, 0);
+            text-align: center;
+            font-weight: bold;
+            padding: 15px 0;
+            margin-top: 20px;
+            clear: both;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 95vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="brand">
+            <img src="ruby.png" alt="Logo" width="30" height="30">
+            <h3>10-Ruby Class Website</h3>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="signup">Classmates</a>
+            <a href="attendance.html" class="team">Attendance Checker</a>
+            <a href="classactivities.html" class="players">Highlights</a>
+        </div>
+    </div>
+
+    <h1 style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;"> Grade 10 Classmates System </h1>
+    <h3 style="font-family: Arial, sans-serif;">Add and view your classmates easily</h3>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Pio" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="section" placeholder="Ruby" required>
+            </div>
+
+             <div class="input-group">
+                <input type="text" id="subject" placeholder="Values Education" required>
+            </div>
+
+            <button class="btn" id="addBtn">Add Classmate</button> <br>
+            <button class="btn" id="listBtn">Show List</button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <py-script src="main.py"></py-script>
+
+    <footer>
+    © 2026 Pio Ramos & Andrei Tecson
+    </footer>
+
+</body>
+</html>

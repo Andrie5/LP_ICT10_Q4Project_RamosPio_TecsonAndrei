@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <py-config>
+        packages = ['numpy', 'matplotlib']
+    </py-config>
+    <title>Attendance tracker</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: conic-gradient(rgb(255, 0, 0), rgb(125, 1, 1), rgb(255, 121, 121), rgb(118, 12, 12), rgb(183, 61, 61), rgb(255, 0, 0));
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .navbar {
+            width: 100%;
+            background: rgba(255, 244, 128, 0.95); 
+            padding: 2px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+         .navbar .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar h3 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            margin-left: 10px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            color: black;
+            font-weight: 500;
+        }
+
+       .signup { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .team { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .players { 
+            background: linear-gradient(rgb(255, 121, 121), rgb(255, 0, 0), rgb(255, 0, 0), rgb(255, 121, 121));
+        }
+
+        .signup:hover, .team:hover, .players:hover, button:hover{ 
+            opacity: 0.7; 
+        }
+
+        h1{
+            text-align: center;
+            margin: 30px 0;
+            color: rgb(58, 0, 0);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            font-weight: bold;
+        }
+
+        h3{
+            text-align: center;
+            margin: 10px 0;
+            font-size: 15px;
+            color: rgb(58, 0, 0);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+        .wrapper {
+            height: 68vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 100px;
+            width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            border-color: #000061;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            background: linear-gradient(to right, rgb(216, 154, 154), rgb(255, 255, 161), lightgreen, lightblue);
+            color: rgb(66, 63, 63);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.7;
+        }
+
+        footer {
+            background: radial-gradient( rgb(233, 238, 160), rgb(155, 20, 20));
+            color: rgb(58, 0, 0);
+            text-align: center;
+            font-weight: bold;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        
+    </style>
+</head>
+<body class="bg-primary">
+    <div class="navbar">
+        <div class="brand">
+            <img src="ruby.png" alt="Logo" width="30" height="30">
+            <h3>10-Ruby Class Website</h3>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="signup">Classmates</a>
+            <a href="attendance.html" class="team">Attendance Checker</a>
+            <a href="classactivities.html" class="players">Highlights</a>
+        </div>
+    </div>
+    
+    <h1>Attendance Tracker</h1>
+
+    
+    <div class="main-flex" style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; margin-top: 40px;">
+    <div id="chart" style="background: white; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); padding: 20px; display: none;"></div>
+    <div class="container text-center bg-light rounded shadow-sm" style="width: 500px">
+        <br>
+        <label for="day">Select Day</label><br>
+        <select id="day" style="width: 250px;">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+        </select><br><br>
+
+        <label for="num">Absences</label><br>
+        <input type="number" id="num" value="0" style="width: 250px;"><br><br>
+        <button onclick="plot()" class="rounded bg-danger text-light mx-auto" style="width: 250px;">Submit</button><br>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<py-script src="attendance.py"></py-script>
+
+<footer>
+    © 2026 Pio Ramos & Andrei Tecson
+</footer>
+
+</body>
+</html>
